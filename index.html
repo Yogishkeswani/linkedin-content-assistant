@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LinkedIn Content Assistant for Students</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:900px;margin:40px auto;padding:20px;background:#f5f7fb}
+.card{background:white;padding:20px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+input,textarea{width:100%;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:8px}
+button{padding:12px 18px;border:none;border-radius:8px;background:#0a66c2;color:white;cursor:pointer}
+.result{margin-top:20px;padding:15px;background:#eef6ff;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>LinkedIn Content Assistant for Students</h1>
+<p>Enter your skills and project. Get LinkedIn post ideas instantly.</p>
+
+<input id="skill" placeholder="Skill (e.g. Java, Python, AI)">
+<input id="project" placeholder="Current Project">
+<textarea id="goal" placeholder="What are you learning?"></textarea>
+<button onclick="generate()">Generate Ideas</button>
+
+<div id="out"></div>
+</div>
+
+<script>
+function generate(){
+const s=document.getElementById('skill').value||'Programming';
+const p=document.getElementById('project').value||'Project';
+const g=document.getElementById('goal').value||'new skills';
+
+document.getElementById('out').innerHTML=`
+<div class="result">
+<h3>Post Idea #1</h3>
+<p>Today I learned an important concept in ${s}. While working on ${p}, I discovered...</p>
+
+<h3>Post Idea #2</h3>
+<p>3 lessons I learned while building ${p} and improving my ${s} skills.</p>
+
+<h3>Post Idea #3</h3>
+<p>My journey of learning ${g}. Here's what I struggled with and how I solved it.</p>
+
+<h3>Suggested Hashtags</h3>
+<p>#LearningInPublic #BuildInPublic #${s.replace(/\s+/g,'')} #StudentBuilder #CareerGrowth</p>
+</div>`;
+}
+</script>
+</body>
+</html>
